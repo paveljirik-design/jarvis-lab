@@ -1,74 +1,476 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>J.A.R.V.I.S. LAB</title>
+<meta name="theme-color" content="#050b16">
+<meta name="description" content="J.A.R.V.I.S. LAB - osobní AI asistent s lokální umělou inteligencí.">
+<title>J.A.R.V.I.S. LAB | Official Website</title>
+
 <style>
-* { box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg: #050b16;
+  --panel: #0b1728;
+  --blue: #13caff;
+  --cyan: #65e5ff;
+  --text: #e8f7ff;
+  --muted: #8ba6bc;
+  --line: rgba(70,190,255,.18);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
 body {
-  margin: 0;
-  background: #070d18;
-  color: #e8f5ff;
-  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(0,140,220,.13), transparent 55%),
+    linear-gradient(rgba(15,70,110,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,70,110,.045) 1px, transparent 1px);
+  background-size: auto, 45px 45px, 45px 45px;
+}
+
 header {
-  padding: 24px 8%;
-  border-bottom: 1px solid #183c56;
-  color: #54d9ff;
-  font-size: 22px;
-  font-weight: bold;
+  height: 78px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  background: rgba(5,11,22,.88);
+  backdrop-filter: blur(15px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-main {
-  max-width: 950px;
-  margin: 90px auto;
-  padding: 25px;
+
+.brand {
+  font-family: Orbitron, sans-serif;
+  color: var(--cyan);
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 19px;
+}
+
+.brand span { color: white; }
+
+nav { display: flex; gap: 30px; }
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: .25s;
+}
+
+nav a:hover { color: var(--cyan); }
+
+.hero {
+  min-height: 690px;
+  padding: 100px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  position: relative;
 }
-h1 {
-  color: #58dcff;
-  font-size: clamp(38px, 7vw, 70px);
-  margin-bottom: 10px;
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 17px;
+  border: 1px solid rgba(40,210,255,.3);
+  border-radius: 30px;
+  color: var(--cyan);
+  background: rgba(0,160,220,.07);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
-.subtitle { color: #9bb4c9; font-size: 19px; }
-.panel {
-  margin: 45px auto;
-  padding: 30px;
+
+.dot {
+  height: 7px;
+  width: 7px;
+  border-radius: 50%;
+  background: #34e7b2;
+  box-shadow: 0 0 12px #34e7b2;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: .3; }
+}
+
+.hero h1 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(42px, 9vw, 100px);
+  letter-spacing: 5px;
+  margin: 35px 0 15px;
+  background: linear-gradient(100deg, #fff, #50dfff, #168cff);
+  -webkit-background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 25px rgba(0,180,255,.3));
+}
+
+.hero h2 {
+  font-size: clamp(16px, 3vw, 25px);
+  font-weight: 400;
+  color: #b5d6e9;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.hero p {
+  max-width: 610px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin: 25px auto 35px;
+  font-size: 15px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 15px 27px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: .25s;
+}
+
+.primary {
+  background: var(--blue);
+  color: #00111c;
+  box-shadow: 0 0 25px rgba(19,202,255,.2);
+}
+
+.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(19,202,255,.5);
+}
+
+.secondary {
+  border: 1px solid var(--line);
+  color: var(--cyan);
+}
+
+.secondary:hover {
+  background: rgba(19,202,255,.1);
+}
+
+.reactor {
+  width: 160px;
+  height: 160px;
+  border: 1px solid rgba(70,210,255,.4);
+  border-radius: 50%;
+  margin: 55px auto 0;
+  display: grid;
+  place-items: center;
+  position: relative;
+  box-shadow: 0 0 35px rgba(0,180,255,.12), inset 0 0 30px rgba(0,180,255,.1);
+}
+
+.reactor::before, .reactor::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 2px dashed rgba(50,210,255,.65);
+  border-radius: 50%;
+  animation: rotate 14s linear infinite;
+}
+
+.reactor::after {
+  inset: 27px;
+  border-style: solid;
+  border-color: rgba(30,140,255,.5);
+  animation-direction: reverse;
+  animation-duration: 9s;
+}
+
+.reactor span {
+  font-family: Orbitron;
+  font-size: 28px;
+  color: var(--cyan);
+  text-shadow: 0 0 20px var(--blue);
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+section {
+  padding: 90px 8%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.section-label {
+  color: var(--blue);
+  font-family: Orbitron;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-family: Orbitron;
+  font-size: clamp(25px, 4vw, 38px);
+  margin-bottom: 18px;
+}
+
+.section-description {
+  color: var(--muted);
+  line-height: 1.8;
   max-width: 650px;
-  background: #101d30;
-  border: 1px solid #20516e;
+  margin-bottom: 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(15,35,57,.9), rgba(7,17,31,.9));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(50,210,255,.6);
+  box-shadow: 0 12px 35px rgba(0,130,200,.1);
+}
+
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.version {
+  border-left: 2px solid var(--blue);
+  padding: 8px 0 8px 25px;
+  margin: 25px 0;
+}
+
+.version h3 {
+  font-family: Orbitron;
+  color: var(--cyan);
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.version p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.version small {
+  color: #68869e;
+  display: block;
+  margin-top: 7px;
+}
+
+.download-panel {
+  text-align: center;
+  padding: 55px 25px;
+  border: 1px solid rgba(40,190,255,.25);
+  background: radial-gradient(ellipse at center, rgba(0,140,210,.13), transparent 70%), #091526;
   border-radius: 15px;
 }
-button {
-  background: #0b9fca;
-  color: white;
-  border: 0;
-  padding: 14px 28px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
+
+.download-panel h2 {
+  font-family: Orbitron;
+  font-size: clamp(24px, 4vw, 35px);
+  margin-bottom: 15px;
 }
+
+.download-panel p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
 footer {
+  border-top: 1px solid var(--line);
+  padding: 35px 8%;
   text-align: center;
-  color: #71879b;
-  padding: 30px;
-  border-top: 1px solid #183c56;
+  color: #6e879b;
+  font-size: 12px;
+  line-height: 2;
+}
+
+footer strong {
+  color: var(--cyan);
+  font-family: Orbitron;
+}
+
+@media(max-width:650px) {
+  header { padding: 0 5%; height: 68px; }
+  .brand { font-size: 15px; }
+  nav { gap: 13px; }
+  nav a { font-size: 10px; }
+  .hero { min-height: 600px; padding-top: 75px; }
+  section { padding: 65px 6%; }
 }
 </style>
 </head>
+
 <body>
-<header>J.A.R.V.I.S. LAB</header>
-<main>
+
+<header>
+  <div class="brand">J.A.R.V.I.S. <span>LAB</span></div>
+  <nav>
+    <a href="#about">O projektu</a>
+    <a href="#features">Funkce</a>
+    <a href="#versions">Verze</a>
+    <a href="#download">Stažení</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="status"><span class="dot"></span> SYSTEM ONLINE</div>
   <h1>J.A.R.V.I.S.</h1>
-  <p class="subtitle">Your personal local AI assistant.</p>
-  <section class="panel">
-    <h2>Welcome to J.A.R.V.I.S. LAB</h2>
-    <p>Intelligent tools. Local AI. One workspace.</p>
-    <p>Current version: <strong>5.3.0</strong></p>
-    <p>Official website and release information.</p>
-    <button>DOWNLOAD COMING SOON</button>
-  </section>
-</main>
-<footer>© 2026 J.A.R.V.I.S. LAB</footer>
+  <h2>Personal AI System</h2>
+  <p>
+    Inteligentní pracovní prostředí s lokální umělou inteligencí.
+    Jeden projekt, mnoho možností. Vítejte v J.A.R.V.I.S. LAB.
+  </p>
+
+  <div class="buttons">
+    <a class="btn primary" href="#about">PROZKOUMAT PROJEKT</a>
+    <a class="btn secondary" href="#versions">HISTORIE VERZÍ</a>
+  </div>
+
+  <div class="reactor"><span>J</span></div>
+</div>
+
+<section id="about">
+  <div class="section-label">01 / ABOUT SYSTEM</div>
+  <h2 class="section-title">Co je J.A.R.V.I.S. LAB?</h2>
+  <p class="section-description">
+    J.A.R.V.I.S. LAB je projekt osobního AI asistenta pro počítače.
+    Jeho cílem je spojit moderní uživatelské rozhraní, užitečné nástroje
+    a možnosti lokální umělé inteligence do jednoho prostředí.
+  </p>
+</section>
+
+<section id="features">
+  <div class="section-label">02 / CAPABILITIES</div>
+  <h2 class="section-title">Systémové funkce</h2>
+  <p class="section-description">
+    Jedno prostředí pro práci s informacemi, nástroji a lokální AI.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">◈</div>
+      <h3>Local AI</h3>
+      <p>Možnost využívat lokální AI modely přímo na vlastním počítači.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">⌘</div>
+      <h3>System Monitor</h3>
+      <p>Přehled o systému a důležitých informacích o počítači.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">◎</div>
+      <h3>Modern Interface</h3>
+      <p>Vlastní grafické prostředí inspirované futuristickými AI systémy.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">✧</div>
+      <h3>Development</h3>
+      <p>Projekt se průběžně vyvíjí a dostává nové funkce a vylepšení.</p>
+    </div>
+  </div>
+</section>
+
+<section id="versions">
+  <div class="section-label">03 / RELEASE HISTORY</div>
+  <h2 class="section-title">Vývoj projektu</h2>
+  <p class="section-description">
+    Přehled současné verze a plánovaného vývoje.
+  </p>
+
+  <div class="version">
+    <h3>VERSION 5.3.0</h3>
+    <p>Aktuální vývojová verze projektu J.A.R.V.I.S. LAB.</p>
+    <small>Aktuální verze</small>
+  </div>
+
+  <div class="version">
+    <h3>VERSION 5.4</h3>
+    <p>Připravované funkce a další vylepšení systému.</p>
+    <small>Plánováno</small>
+  </div>
+
+  <div class="version">
+    <h3>VERSION 5.5</h3>
+    <p>Další etapa vývoje projektu.</p>
+    <small>Plánováno</small>
+  </div>
+</section>
+
+<section id="download">
+  <div class="download-panel">
+    <div class="section-label">04 / DOWNLOAD CENTER</div>
+    <h2>Get J.A.R.V.I.S. LAB</h2>
+    <p>
+      Instalační balíček zatím není připravený k veřejnému stažení.
+      Sledujte tuto stránku pro informace o dalších vydáních.
+    </p>
+    <span class="btn secondary">DOWNLOAD COMING SOON</span>
+  </div>
+</section>
+
+<footer>
+  <strong>J.A.R.V.I.S. LAB</strong><br>
+  Personal AI System · Official Project Website<br>
+  © 2026 J.A.R.V.I.S. LAB. Všechna práva vyhrazena.
+</footer>
+
 </body>
 </html>
