@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="cs">
 <head>
@@ -6,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050b18">
 <title>J.A.R.V.I.S. LAB | Official Website</title>
+<meta name="description" content="J.A.R.V.I.S. LAB 5.3.0 - osobní AI asistent pro Windows 10 a Windows 11.">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -33,8 +33,6 @@ body {
   overflow-x:hidden;
   line-height:1.7;
 }
-
-/* TECHNICAL GRID BACKGROUND */
 
 body::before {
   content:"";
@@ -66,8 +64,6 @@ body::after {
 }
 
 a {text-decoration:none;color:inherit}
-
-/* NAVIGATION */
 
 header {
   position:sticky;
@@ -111,8 +107,6 @@ nav {
 }
 
 .nav-links a:hover {color:var(--cyan)}
-
-/* HERO */
 
 .hero {
   max-width:1200px;
@@ -181,8 +175,6 @@ nav {
   transform:translateY(-3px);
   box-shadow:0 0 25px #00d9ff55;
 }
-
-/* REACTOR */
 
 .reactor-area {
   display:flex;
@@ -270,8 +262,6 @@ nav {
   50% {filter:brightness(1.3)}
 }
 
-/* GENERAL SECTIONS */
-
 section.content {
   max-width:1200px;
   margin:auto;
@@ -279,9 +269,7 @@ section.content {
   scroll-margin-top:75px;
 }
 
-.section-heading {
-  margin-bottom:45px;
-}
+.section-heading {margin-bottom:45px}
 
 .section-number {
   font-family:'Orbitron',sans-serif;
@@ -305,8 +293,6 @@ section.content {
   font-size:14px;
   margin-top:15px;
 }
-
-/* CARDS */
 
 .cards {
   display:grid;
@@ -369,8 +355,6 @@ section.content {
   position:relative;
 }
 
-/* VERSIONS */
-
 .version-card {
   display:flex;
   flex-direction:column;
@@ -404,8 +388,6 @@ section.content {
   color:#8ca5bd;
   border-color:#3b536b;
 }
-
-/* DEVELOPER */
 
 .developer-wrap {
   max-width:850px;
@@ -488,8 +470,6 @@ section.content {
   font-size:10px;
 }
 
-/* DOWNLOAD */
-
 .download-panel {
   text-align:center;
   padding:65px 30px;
@@ -518,16 +498,62 @@ section.content {
   display:inline-block;
   margin:25px 0;
   padding:9px 17px;
-  border:1px solid #a47b36;
-  color:#ffd18a;
-  background:#a47b3615;
+  border:1px solid #00d9ff;
+  color:var(--cyan);
+  background:#00d9ff15;
   border-radius:4px;
   font-family:'Orbitron',sans-serif;
   font-size:10px;
   letter-spacing:2px;
 }
 
-/* FOOTER */
+.download-details {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+  margin:10px 0 30px;
+}
+
+.download-detail {
+  padding:10px 15px;
+  background:#0c2239;
+  border:1px solid #1a405b;
+  border-radius:5px;
+  color:#c9e4f3;
+  font-size:12px;
+}
+
+.download-detail strong {color:var(--cyan)}
+
+.download-instructions {
+  max-width:570px;
+  margin:35px auto 0;
+  padding-top:25px;
+  border-top:1px solid var(--line);
+  text-align:left;
+}
+
+.download-instructions h4 {
+  color:var(--cyan);
+  font-family:'Orbitron',sans-serif;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.download-instructions ol {
+  color:var(--muted);
+  font-size:13px;
+  padding-left:22px;
+}
+
+.download-instructions li {margin:7px 0}
+
+.download-note {
+  margin-top:22px !important;
+  font-size:11px !important;
+  opacity:.85;
+}
 
 footer {
   margin-top:50px;
@@ -571,6 +597,7 @@ footer span {color:var(--cyan)}
   .avatar {margin:auto}
   .info-list,.tags {justify-content:center}
   .developer-name {font-size:22px}
+  .download-panel {padding:45px 18px}
 }
 </style>
 </head>
@@ -699,9 +726,9 @@ footer span {color:var(--cyan)}
     <div class="card version-card">
       <div class="version-top">
         <h3>VERSION 5.3.0</h3>
-        <span class="status">CURRENT</span>
+        <span class="status">RELEASED</span>
       </div>
-      <p>Aktuální vývojová verze. Základ desktopového asistenta, lokální AI a uživatelského rozhraní.</p>
+      <p>První veřejné vydání. Desktopový asistent s lokální AI, systémovým monitorem a vlastním uživatelským rozhraním.</p>
     </div>
 
     <div class="card version-card">
@@ -762,17 +789,51 @@ footer span {color:var(--cyan)}
   <div class="section-heading">
     <div class="section-number">05 / DOWNLOAD CENTER</div>
     <h2>Download <span>Center</span></h2>
-    <p>Oficiální místo pro budoucí vydání a instalační balíčky.</p>
+    <p>Stáhni si aktuální veřejnou verzi J.A.R.V.I.S. LAB.</p>
   </div>
 
   <div class="download-panel">
-    <div class="eyebrow">OFFICIAL RELEASE</div>
+    <div class="eyebrow">OFFICIAL PUBLIC RELEASE</div>
     <h3>J.A.R.V.I.S. LAB 5.3.0</h3>
+
     <p>
-      Instalační balíček se připravuje. Ke stažení bude dostupný
-      po dokončení testování a ověření instalačního souboru.
+      První veřejná přenosná verze osobního AI asistenta.
+      Stáhni ZIP balíček, rozbal ho a spusť aplikaci.
     </p>
-    <div class="download-status">DOWNLOAD COMING SOON</div>
+
+    <div class="download-status">● AVAILABLE NOW</div>
+
+    <div class="download-details">
+      <div class="download-detail"><strong>OS:</strong> Windows 10 / 11</div>
+      <div class="download-detail"><strong>Architecture:</strong> 64-bit</div>
+      <div class="download-detail"><strong>Version:</strong> 5.3.0</div>
+      <div class="download-detail"><strong>Package:</strong> Portable ZIP</div>
+      <div class="download-detail"><strong>Size:</strong> 47.1 MB</div>
+    </div>
+
+    <a
+      class="btn primary"
+      href="https://github.com/paveljirik-design/jarvis-lab/releases/latest"
+      target="_blank"
+      rel="noopener noreferrer">
+      DOWNLOAD J.A.R.V.I.S.
+    </a>
+
+    <div class="download-instructions">
+      <h4>HOW TO INSTALL</h4>
+      <ol>
+        <li>Otevři stránku GitHub Releases.</li>
+        <li>Stáhni soubor JARVIS.zip.</li>
+        <li>Rozbal ZIP archiv do vybrané složky.</li>
+        <li>Spusť soubor JARVIS.exe.</li>
+      </ol>
+    </div>
+
+    <p class="download-note">
+      Určeno pro 64bitové systémy Windows 10 a Windows 11.
+      Jde o přenosnou verzi bez klasického instalačního programu.
+      Windows může při prvním spuštění zobrazit bezpečnostní upozornění.
+    </p>
   </div>
 </section>
 
@@ -784,3 +845,4 @@ footer span {color:var(--cyan)}
 
 </body>
 </html>
+
